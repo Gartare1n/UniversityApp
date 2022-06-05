@@ -3,9 +3,14 @@
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>University</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#"><i class="material-icons">account_circle</i></a></li>
-        <li><a href="#"><i class="material-icons">event_note</i></a></li>
-        <li><a href="#"><i class="material-icons">more_view</i></a></li>
+        <% if logged_in? %>
+          <li><a href="<%= student_path(current_user) %>"><i class="material-icons">account_circle</i></a></li>
+        <% end %>
+        <li><a href="<%= root_path %>"><i class="material-icons">event_note</i></a></li>
+        <% if logged_in?%>
+          <li><a href="<%= students_path %>"><i class="material-icons">contacts</i></a></li>
+        <% end %>
+        <li><%= session_link%></li>
       </ul>
     </div>
   </div>
